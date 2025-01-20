@@ -10,14 +10,12 @@ app.use(bodyParser.json())
 
 
 
-app.get('/api/crear-usuarios', (req, res) => {
-    res.json("usuarios EXITOSO");
-  });
-
 app.post('/api/crear-usuarios', (req, res) => {
     const { Nombre, Apellido } = req.body;
     console.log(Nombre,Apellido)
     console.log("Recibido")
+
+    res.json({message : "usuarios EXITOSO"});
 })
 
 app.listen(port, () => {
