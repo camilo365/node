@@ -8,14 +8,20 @@ const port = 3000;
 app.use(cors())
 app.use(bodyParser.json())
 
+const usuario = 'admin'
+const contra = 12345
+
 
 
 app.post('/api/crear-usuarios', (req, res) => {
-    const { Nombre, Apellido } = req.body;
-    console.log(Nombre,Apellido)
+    const { User, Password } = req.body;
+    console.log(User,Password)
     console.log("Recibido")
-
-    res.json({message : "usuarios EXITOSO"});
+    if(User==usuario && Password == contra)
+        res.json({message : "usuarios EXITOSO"});
+    else{
+        res.json({message : "usuario denegado"})
+    }
 })
 
 app.listen(port, () => {
