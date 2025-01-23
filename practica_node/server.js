@@ -18,9 +18,9 @@ app.post('/api/crear-usuarios', (req, res) => {
     console.log(User,Password)
     console.log("Recibido")
     if(User==usuario && Password == contra)
-        res.json({message : "usuarios EXITOSO"});
+        res.json({message : "E"});
     else{
-        res.json({message : "usuario denegado"})
+        res.json({message : "D"})
     }
 })
 
