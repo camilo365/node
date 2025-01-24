@@ -22,6 +22,17 @@ app.post('/api/crear-usuarios', (req, res) => {
         res.json({message : "D"})
     }
 })
+
+app.post('/api/crear-pacientes', (req, res) => {
+    const { Nombre, Apellido, Edad, Ciudad } = req.body;
+    console.log(Nombre,Apellido,Edad, Ciudad)
+    console.log("Recibido")
+    console.log("________________________")
+    res.json({message : "RU"})
+})
+
+
+
 const { datosbd } = require('./databases/db')
 datosbd()
 
