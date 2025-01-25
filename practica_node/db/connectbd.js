@@ -1,21 +1,19 @@
 /* solo conexion base de datos */
 
-require('dotenv').config({path: '../.env'})
+require('dotenv').config({path: 'C:/Users/adm/Desktop/node/node/.env'})
 
 const sql = require('mssql')
-const { database, password } = require('pg/lib/defaults')
-const { Connection } = require('pg')
-
-
-
 
 const config = {
+    server : process.env.DATABASE_SERVER,
+    port : Number(process.env.DATABASE_PORT),
+    database : process.env.DATABASE_NAME,
     user : process.env.DATABASE_USER,
     password : process.env.DATABASE_PASSWORD,
-    server : process.env.DATABASE_HOST,
-    database : process.env.DATABASE_NAME
-
 }
+
+console.log(config.database,config.password,config.user,config.server)
+console.log('_______________')
 async function datosbd() {
     try {
       await sql.connect(config)
