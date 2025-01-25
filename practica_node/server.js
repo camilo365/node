@@ -27,14 +27,8 @@ app.post('/api/crear-pacientes', (req, res) => {
     const { Nombre, Apellido, Edad, Ciudad } = req.body;
     console.log(Nombre,Apellido,Edad, Ciudad)
     console.log("Recibido")
-    console.log("________________________")
     res.json({message : "RU"})
 })
-
-
-
-const { datosbd } = require('./databases/db')
-datosbd()
 
 app.listen(port, () => {
     console.log(`Servidor de Node.js corriendo en http://localhost:${port}`);
