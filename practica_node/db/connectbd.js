@@ -1,6 +1,9 @@
-/* solo conexion base de datos */
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
-require('dotenv').config({path: 'C:/Users/adm/Desktop/node/node/.env'})
+/* solo conexion base de datos */
+/* 
+require('dotenv').config({path: 'C:/Users/adm/Desktop/node/node/.env'}) */
+require('dotenv').config({path: 'C:/Users/junio/Desktop/node_nata/node/.env'})
 
 const sql = require('mssql')
 
@@ -10,6 +13,11 @@ const config = {
     database : process.env.DATABASE_NAME,
     user : process.env.DATABASE_USER,
     password : process.env.DATABASE_PASSWORD,
+    options: {
+      /* se pone esta linea para evitar la validacion de certificado */
+      encrypt: true, // Asegura que la conexión esté cifrada
+      trustServerCertificate: true // Desactiva la validación de certificado (esto puede ayudar a evitar el error)
+    }
 }
 
 console.log(config.database,config.password,config.user,config.server)
