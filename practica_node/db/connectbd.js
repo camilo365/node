@@ -21,7 +21,6 @@ const config = {
 }
 
 console.log(config.database,config.password,config.user,config.server)
-console.log('_______________')
 async function datosbd() {
     try {
       await sql.connect(config)
@@ -37,6 +36,6 @@ async function datosbd() {
   // Llamamos a la función para probar la conexión
 datosbd();
 
-module.exports = sql
-module.exports = datosbd;
+module.exports = {sql,datosbd};
+
 

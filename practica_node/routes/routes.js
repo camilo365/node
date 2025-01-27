@@ -1,7 +1,8 @@
 /* manejar endpoints consulta */
-
 import { Router } from "express";
 
 const router = Router()
 
-router.get('')
+const consultas = require('../logic/consultas')
+
+router.post('/api/crear-usuarios', consultas.)

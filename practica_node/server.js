@@ -8,20 +8,11 @@ const port = 3000;
 
 app.use(cors())
 app.use(bodyParser.json())
+/* de estar forma recibo del front y despacho la inserccion */
+const insertardatos = require('./logic/consultas')
+app.post('/api/crear-usuario', insertardatos)
 
-const usuario = 'admin'
-const contra = 12345
-
-app.post('/api/crear-usuarios', (req, res) => {
-    const { User, Password } = req.body;
-    console.log(User,Password)
-    console.log("Recibido")
-    if(User==usuario && Password == contra)
-        res.json({message : "E"});
-    else{
-        res.json({message : "D"})
-    }
-})
+/* api aparte */
 
 app.post('/api/crear-pacientes', (req, res) => {
     const { Nombre, Apellido, Edad, Ciudad } = req.body;
